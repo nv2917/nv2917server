@@ -15,4 +15,3 @@ deploy:
   api_key: 7f17abf3-2643-4c7d-8bd4-282f8e40c22e
   app: nv2917server
   skip_cleanup: true
-  note that your actual secure
