@@ -15,8 +15,13 @@ public class MyServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        String path = req.getServletPath();
         resp.setContentType("text/html");
-        resp.getWriter().write("These are the patients"+req.getServletPath());
+        resp.getWriter().write(path);
+        if(path=="/patients")
+            resp.getWriter().write("These are the patients");
+        else if(path=="/doctors")
+            resp.getWriter().write("There are the doctors");
     }
 
 
