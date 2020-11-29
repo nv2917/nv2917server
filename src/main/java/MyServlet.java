@@ -14,21 +14,20 @@ import java.util.stream.Collectors;
 public class MyServlet extends HttpServlet {
 
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        resp.setContentType("text/html");
-        resp.getWriter().write("Hello you\n");
-        String dbUrl = System.getenv("DATABASE_URL");
-        resp.getWriter().write(dbUrl);
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
 
-        try {
-            Connection conn= DriverManager.getConnection(dbUrl);
-            resp.getWriter().write("Hello me");
-
-        } catch (SQLException throwables) {
-            throwables.printStackTrace();
+        String path = request.getServletPath();
+        if (path=="/Patients"){
+            response.setContentType("text/html");
+            response.getWriter().print("These are the patients");
         }
-
+        else if (path=="/Doctors"){
+            response.setContentType("text/html");
+            response.getWriter().print("These are the doctors");
+        }
     }
+
 
     public void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String reqBody=req.getReader().lines().collect(Collectors.joining(System.lineSeparator()));
