@@ -10,19 +10,17 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.stream.Collectors;
 
-@WebServlet(urlPatterns={"/patients"},loadOnStartup = 1)
+@WebServlet(urlPatterns={"/patients","/doctors"},loadOnStartup = 1)
 public class MyServlet extends HttpServlet {
 
     @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String path = request.getServletPath();
-        if (path=="/Patients"){
+        if (path=="/patients"){
             response.setContentType("text/html");
             response.getWriter().print("These are the patients");
         }
-        else if (path=="/Doctors"){
+        else if (path=="/doctors"){
             response.setContentType("text/html");
             response.getWriter().print("These are the doctors");
         }
