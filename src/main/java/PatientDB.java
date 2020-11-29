@@ -11,7 +11,7 @@ public class PatientDB {
             Class.forName("org.postgresql.Driver");
         } catch (Exception e) {
         }
-        conn = DriverManager.getConnection(dbUrl, "postgres", "ajaklnm1998");
+        conn = DriverManager.getConnection(dbUrl);
     }
 
     public void createTablePatients() {

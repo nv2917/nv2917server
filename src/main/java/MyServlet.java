@@ -18,7 +18,8 @@ public class MyServlet extends HttpServlet {
         PatientDB pDB = null;
         try {
             pDB = new PatientDB();
-        } catch (SQLException throwables) {
+        }
+        catch (SQLException throwables) {
             throwables.printStackTrace();
         }
         pDB.createTablePatients();
