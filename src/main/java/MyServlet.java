@@ -24,6 +24,7 @@ public class MyServlet extends HttpServlet {
         catch (SQLException throwables) {
             throwables.printStackTrace();
         }
+        resp.getWriter().write("Hello me");
     }
 
     public void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

@@ -5,7 +5,7 @@ public class PatientDB {
     Connection conn;
 
     public PatientDB() throws SQLException {
-        String dbUrl = "https://data.heroku.com/datastores/540a7499-0e28-4479-82e7-dda88a686fd1";
+        String dbUrl = "postgres://gscutarqgzlggf:95e80e5f025008c056f6a0da7a25d021fc22f8d057e23690eff26dfa68b4d783@ec2-176-34-123-50.eu-west-1.compute.amazonaws.com:5432/d7iqi2f4eilmd9";
         try {
             // Registers the driver
             Class.forName("org.postgresql.Driver");
