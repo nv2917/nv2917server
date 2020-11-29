@@ -14,16 +14,9 @@ import java.util.stream.Collectors;
 public class MyServlet extends HttpServlet {
 
     @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String path = request.getServletPath();
-        if (path=="/patients"){
-            response.setContentType("text/html");
-            response.getWriter().write("These are the patients");
-        }
-        else if (path=="/doctors"){
-            response.setContentType("text/html");
-            response.getWriter().write("These are the doctors");
-        }
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        resp.setContentType("text/html");
+        resp.getWriter().write("These are the patients"+req.getServletPath());
     }
 
 
