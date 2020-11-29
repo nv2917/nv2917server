@@ -5,6 +5,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.sql.Connection;
+import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.stream.Collectors;
 
@@ -15,17 +17,15 @@ public class MyServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         resp.setContentType("text/html");
         resp.getWriter().write("Hello you");
-        PatientDB pDB = null;
+        String dbUrl = System.getenv("DATABASE_URL");
         try {
-            pDB = new PatientDB();
-        }
-        catch (SQLException throwables) {
+            Connection conn= DriverManager.getConnection(dbUrl);
+            resp.getWriter().write("Hello me");
+
+        } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
-        pDB.createTablePatients();
-        pDB.insertPatient("Smith","John","0749366");
-        resp.getWriter().write(pDB.getPatient(1));
-        resp.getWriter().write("Hello me!");
+
     }
 
     public void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
