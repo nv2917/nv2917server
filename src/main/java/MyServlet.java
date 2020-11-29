@@ -18,11 +18,11 @@ public class MyServlet extends HttpServlet {
         String path = request.getServletPath();
         if (path=="/patients"){
             response.setContentType("text/html");
-            response.getWriter().print("These are the patients");
+            response.getWriter().write("These are the patients");
         }
         else if (path=="/doctors"){
             response.setContentType("text/html");
-            response.getWriter().print("These are the doctors");
+            response.getWriter().write("These are the doctors");
         }
     }
 
