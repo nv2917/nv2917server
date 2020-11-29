@@ -25,7 +25,7 @@ public class MyServlet extends HttpServlet {
         pDB.createTablePatients();
         pDB.insertPatient("Smith","John","0749366");
         resp.getWriter().write(pDB.getPatient(1));
-        resp.getWriter().write("Hello me");
+        resp.getWriter().write("Hello me!");
     }
 
     public void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
