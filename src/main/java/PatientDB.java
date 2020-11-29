@@ -14,7 +14,7 @@ public class PatientDB {
         conn = DriverManager.getConnection(dbUrl, "postgres", "ajaklnm1998");
     }
 
-    public void createTablePatients() throws SQLException {
+    public void createTablePatients() {
         try {
             Statement s = conn.createStatement();
             String sqlStr = "create table patients (id SERIAL PRIMARY KEY, familyname varchar(128) NOT NUll, givenname varchar(128) NOT NULL, phonenumber varchar(32));";

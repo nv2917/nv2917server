@@ -15,15 +15,15 @@ public class MyServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         resp.setContentType("text/html");
         resp.getWriter().write("Hello you");
+        PatientDB pDB = null;
         try {
-            PatientDB pDB = new PatientDB();
-            pDB.createTablePatients();
-            pDB.insertPatient("Smith","John","0749366");
-            resp.getWriter().write(pDB.getPatient(1));
-        }
-        catch (SQLException throwables) {
+            pDB = new PatientDB();
+        } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
+        pDB.createTablePatients();
+        pDB.insertPatient("Smith","John","0749366");
+        resp.getWriter().write(pDB.getPatient(1));
         resp.getWriter().write("Hello me");
     }
 
