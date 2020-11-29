@@ -18,7 +18,7 @@ public class MyServlet extends HttpServlet {
         resp.setContentType("text/html");
         resp.getWriter().write("Hello you\n");
         String dbUrl = System.getenv("JDBC_DATABASE_URL");
-        resp.getWriter().write("dbUrl");
+        resp.getWriter().write(dbUrl);
 
         try {
             Connection conn= DriverManager.getConnection(dbUrl);
