@@ -17,7 +17,7 @@ public class MyServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         resp.setContentType("text/html");
         resp.getWriter().write("Hello you\n");
-        String dbUrl = System.getenv("JDBC_DATABASE_URL");
+        String dbUrl = System.getenv("DATABASE_URL");
         resp.getWriter().write(dbUrl);
 
         try {
